@@ -13,17 +13,21 @@
     </h1>
     <div class="image-wrapper">
         <div class="image-container" id="container1">
-            <img class="filmimage" id="film1" src="https://image.tmdb.org/t/p/original/rzRb63TldOKdKydCvWJM8B6EkPM.jpg" alt="film1">
-            <div class="overlay-text">Film 1</div>
+            <img onclick="guessFilm('film1')" class="highlight-image filmimage" id="film1" src="" alt="film1">
+            <div class="bottom-text" id="film1txt">Film 1</div>
         </div>
         <div id="or">VS.</div>
         <div class="image-container" id="container2">
-            <img class="filmimage" id="film2" src="https://image.tmdb.org/t/p/original/lFx2i2pg1BoaD7grcpGDyHM1eML.jpg" alt="film2">
-            <div class="overlay-text">Film 2</div>
+            <img onclick="guessFilm('film2')" class="highlight-image filmimage" id="film2" src="" alt="film2">
+            <div class="bottom-text" id="film2txt">Film 2</div>
         </div>
     </div>
-    <div id="score">Score: 0</div>
+    <div class="score-container">
+        <div id="high-score">high score: 0</div>
+        <div id="score">current score: 0</div>
+    </div>
 
-    <script src="gamescript.js"></script>
+    <script src="../static/gamescript.js">
+    </script>
 </body>
 </html>

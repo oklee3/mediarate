@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request, render_template
+from flask_cors import CORS
 from functools import wraps
 import psycopg2
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home():
@@ -34,18 +36,18 @@ def db_handler(f):
             conn.close()
     return wrapper
 
-@app.route('/api/films', methods=['GET'])
+@app.route('/api/movies/random', methods=['GET'])
 @db_handler
 def get_films(conn):
     cur = conn.cursor()
-    cur.execute("SELECT id, title, vote_average, poster_path FROM films ORDER BY RANDOM() LIMIT 2;")
+    cur.execute("SELECT tmdb_id, title, vote_average, poster_path FROM movies ORDER BY RANDOM() LIMIT 2;")
     rows = cur.fetchall()
     films = [
-        {"id": row[0], "title": row[1], "vote_average": row[2]}
+        {"tmdb_id": row[0], "title": row[1], "vote_average": row[2], "poster_path": row[3]}
         for row in rows
     ]
     cur.close()
     return jsonify(films)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="127.0.0.1", port=5000)

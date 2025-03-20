@@ -1,8 +1,17 @@
 body {
     margin: 0;
     height: 100vh;
-    background-color: #5583a1;
+    background-color: #316384;
     background-size: 400% 400%;
+}
+
+.highlight-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 #container1 {padding-left: 15%;}
@@ -36,10 +45,12 @@ body {
     border: 2px solid black;
 }
 
-.overlay-text {
+.bottom-text {
+    font-family: 'Poppins', sans-serif;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 16px;
+    padding: 1% 2%;
 }
 
 .title {
@@ -70,12 +81,20 @@ body {
     opacity: 0.9;
 }
 
-#score {
+#score, #high-score {
     font-family: 'Georgia', serif;
-    font-size: 2.25vw;
+    font-size: 1.8vw;
     text-align: right;
     padding-right: 5%;
     padding-top: 1%;
-    color: white;
-    -webkit-text-stroke: 0.5px #000000;
+    color: #FAD4C0;
+    -webkit-text-stroke: 0.6px #000000;
 }
+
+#high-score {padding-left: 5%;}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
